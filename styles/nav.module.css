@@ -1,0 +1,61 @@
+.logo{
+    font-size: 45px;
+    font-weight: 800;
+  }
+.nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height:70px;
+    padding: 50px 100px;
+    z-index: 100; 
+    background: transparent ;
+    color:  rgb(0, 183, 255);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+.nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+  }
+.nav ul li{
+    margin: 0 25px;
+    font-size: 18px;
+  }
+
+.search_bar{
+  width: 100%;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding:5px 10px;
+  backdrop-filter: blur(4px) saturate;
+
+
+}
+
+.search_bar input{
+  background: transparent;
+  width: 100%;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 7px 8px;
+  font-size: 12px;
+  color: #cac7ff;
+}
+
+.search-bar >button{
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background:#58629b;
+
+}

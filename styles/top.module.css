@@ -1,0 +1,35 @@
+.container{
+     padding:20vh ;
+     margin-bottom:10vh ;
+    width: 100vw;
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.itemcard{
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    background-color: rgb(22, 22, 22);
+    border: 1px solid rgb(11, 11, 11);
+    align-items: center;
+
+}
+
+.img{
+    width: 50px;
+    height: 50px;
+}
+
+.itemcard > h1{
+    width: 60%;
+    font-size: 20px;
+    padding: 0 20px;
+}
+.itemcard > h4{
+    width: 10%;
+}

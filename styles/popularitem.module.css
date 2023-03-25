@@ -1,0 +1,137 @@
+.box{
+    width: 300px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 2px solid white; */
+
+}
+
+
+.card{
+    width: 300px;
+    min-height: 450px;
+    padding: 40px;
+    gap: 20px;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+}
+.mediatype{
+    position: absolute;
+    width: max-content;
+    top: 0;
+    color: rgb(0, 0, 0);
+    right:0;
+    padding: 0 2px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+}
+.season_txt{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+    width: 100%;
+    }
+      
+    .season_txt >p{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .season_txt>h2{
+        font-weight: 900;
+        font-size: 22px;
+    }
+    .season_txt >h4{
+        margin-top: 4px;
+        font-size: 14px;
+        font-weight: 400;
+        color: rgb(224, 224, 224);
+    }
+    
+
+.vote{
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid white;
+    color: white;
+    /* display: flex; */
+    font-weight: 900;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background-color: blue;
+}
+.img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+}
+.outer {
+    width: 100%;
+    gap: 20px;
+    padding: 50px 0;
+    white-space: nowrap;
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.outer div {
+    border: 1px solid rgb(65, 65, 65);
+    min-height: 370px;
+    border-radius: 15px;
+    width: 250px;
+    /* padding: 40px; */
+    margin: 10px;
+    gap: 20px;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    display: inline-block;
+    zoom: 1;
+}
+
+.outer div:hover{
+    scale: 1.05;
+}
+.title{
+    text-align: left;
+    align-self:flex-start;   
+    margin: 0 5px;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+   
+}
+.container{
+    margin-top: 25vh;
+    width: 90%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.outer::-webkit-scrollbar{
+    height: 10px;
+  
+  }
+  .outer::-webkit-scrollbar-thumb{
+     background-color: hsl(0, 0%, 22%);
+     border-radius: 100vw;
+     border: 1px solid hsl(0, 0%, 0%) ;
+  }
+  
+  .outer::-webkit-scrollbar-track{
+    background-color: hsl(0, 0%, 13%);
+    border-radius: 100vw;
+  }

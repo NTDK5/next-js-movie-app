@@ -1,0 +1,14 @@
+.pagination{
+    margin: 100px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    list-style: none;
+}
+.pageItem{
+    padding: 3px 5px;
+    border-radius: 4px;
+    background-color: rgb(110, 110, 110);
+    font-size: 20px;
+}

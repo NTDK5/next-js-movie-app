@@ -1,0 +1,49 @@
+.container {
+    width: 100% ;
+    /* padding: 50px; */
+    gap: 20px;
+    display: grid;
+    padding: 40px;
+    /* margin-top: 50px; */
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: flex-start;
+    position: relative;
+/* 
+    
+    border: 3px solid white; */
+    
+  }
+
+.card{
+    /* width: 100px; */
+    background-color: gray;
+    margin: 20px;
+}
+.container > button{
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+}
+.scroll {
+  width: 100% ;
+  padding: 50px;
+  /* display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(5, 1fr); */
+  display:flex;
+  flex-direction: row;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.title{
+  margin-left: 40px;
+  text-align: left;
+  align-self:flex-start;   
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  margin-top: 10vh;
+
+}
