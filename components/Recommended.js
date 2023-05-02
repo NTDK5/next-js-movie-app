@@ -1,6 +1,6 @@
 import styles from "../styles/popularitem.module.css"
 import { useState } from "react"
-import Upcomingitem from 'Upcomingitem'
+import Upcomingitem from './Upcomingitem'
 
 const  Recommended = ({recommended}) => {
 
