@@ -2,9 +2,8 @@ import Link from "next/link"
 import style from "../styles/popularitem.module.css"
 
 
-const Upcomingitem = ({list}) => {
+const Upcomingitem = ({list, mediaType}) => {
   let posterpath = list.poster_path
-  const mediaType = "Recommended"
   let imgsrc = `https://image.tmdb.org/t/p/original${posterpath}` 
   const backgroundimg ={
     backgroundImage: `url(${imgsrc})`,

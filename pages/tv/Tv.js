@@ -12,19 +12,18 @@ const Tv = () => {
     console.log(page)
     const [expanded, setexpanded]=useState(true)
     const [popularlist, setpopularlist] = useState({})
-    const pages =[1,2,3,4,5,6,7,8,9,10]
-      const handleClicked = async (page)=>{
+    const pages =[1,2,3,4,5,6,7,8,9,10];
+    const handleClicked = async (page)=>{
         const popularlist =await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=0c55e77b8c48f4c85063d957ff2a1851&language=en-US&page=${page}`)
         setpopularlist(await popularlist.json());
         
         
       }
-  useEffect(() => {
-
-    return () => {
-      handleClicked(page)
-    }
-  }, [page])
+    useEffect(() => {
+      return () => {
+        handleClicked(page)
+      }
+  }, [])
   
       
   return (

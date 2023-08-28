@@ -77,7 +77,7 @@ export default function Home({popularlist, upcoming, recommended}) {
             
             <Popular  search={search}  selected = {setselected} selectedmovie = {setselectedmovie}  setexpanded= {setexpanded}popularlist={search ? searchMovies : popularlist} title={"Trending"} expanded={expanded}/>
             {search ? <div className={styles.none}></div> :<Popular popularlist={upcoming} title={"What's New"}  mediatype={"movie"}/>}
-            <Recommended  recommended={recommended} />
+            <Recommended  recommended={recommended} mediaType='movie'/>
           </main>
         </div>
         <Footer />

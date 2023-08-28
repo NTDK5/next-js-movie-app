@@ -5,12 +5,15 @@ import Style from "../../styles/selectedmovie.module.css"
 import Cast from "../../components/Cast"
 import Recommended from "../../components/Recommended"
 import Head from 'next/head'
+import YouTube from 'react-youtube';
 
 
 
 
 const selectedmovie = () => {
     const router = useRouter()
+    const [playtrailer, setplaytrailer] = useState(false)
+    const [videoId, setvideoId] = useState("");
     const [recommend, setrecommend] = useState({})
     const [expand, setexpand] = useState(false)
     const getDetails = async (Id) =>{
@@ -26,12 +29,16 @@ const selectedmovie = () => {
         const recommends =await fetch(`https://api.themoviedb.org/3/tv/${Id}/recommendations?api_key=0c55e77b8c48f4c85063d957ff2a1851&language=en-US&page=1`)
         
         setrecommend(await recommends.json())
+
+        const videos = await fetch(`https://api.themoviedb.org/3/tv/${Id}/videos?api_key=0c55e77b8c48f4c85063d957ff2a1851&language=en-US&page=1`)
+        const Trailers = await videos.json()
+        const Official = Trailers.results?.find(vid => vid.name === "Official Trailer")
+        setvideoId(Official?.key)
     
       }
     const {
       query: {id},
     } = router
-    const [Id, setId] =useState(id)
     const [Details, setDetails] = useState({})
     const [cast, setcast] = useState({})
     let posterpaths = Details.poster_path
@@ -48,10 +55,23 @@ const selectedmovie = () => {
 
 
     useEffect(() => {
-      getDetails(Id)
+      setplaytrailer(false)
+      getDetails(id)
 
-    }, [])
+    }, [id])
     const casts = expand ? cast.cast :cast.cast?.slice(0,6)
+
+    const opts = {
+      height: '100%',
+      width: '100%',
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 1,
+      },
+    };
+
+
+
     return (
 <>
 <Head>
@@ -62,9 +82,11 @@ const selectedmovie = () => {
     </Head>
             <Nav />
             <div className={Style.slider} >
-              <div className={Style.current} style={backgroundimg}></div>
+              <div className={Style.current} style={backgroundimg}>
+              {playtrailer ? <><YouTube className={Style.trailers} videoId={videoId} opts={opts} /> </>: null}
+              </div>
             </div>
-
+            {playtrailer ?<button onClick={()=> setplaytrailer(false)} className={Style.close}>Close Trailer</button>: null}
             <div className={Style.container}>
               
               
@@ -115,7 +137,7 @@ const selectedmovie = () => {
                             
                       </div>
                       <div className={Style.btn_container}>
-                        <button className={Style.trailer}>Watch Trailer</button>
+                        <button className={Style.trailer} onClick={() => setplaytrailer(true)}>Watch Trailer</button>
                         <button className={Style.add}>Add To Favorites </button>
                       </div>
                     </div>
@@ -207,7 +229,7 @@ const selectedmovie = () => {
 
                   {/*REcomendation */}
                 
-                <Recommended recommended={recommend} />
+                <Recommended recommended={recommend} mediaType='tv' />
             </div>
             
 
@@ -217,3 +239,4 @@ const selectedmovie = () => {
 }
 
 export default selectedmovie
+

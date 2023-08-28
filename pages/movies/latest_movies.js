@@ -12,20 +12,17 @@ import Head from 'next/head';
 
 const latest_movies = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setloading] = useState(true)
+  const [loading, setloading] = useState(true);
+  const [expanded, setexpanded]=useState(true);
+  const [popularlist, setpopularlist] = useState({});
     
-    const [expanded, setexpanded]=useState(true)
-    const [popularlist, setpopularlist] = useState({})
-    
-    // const pages =[2,3,4,5,6,7,8,9,10]
     
     const handleClicked = async (page)=>{
-        // setloading(true)
-        // setCurrentPage(page)
+        setloading(true)
         const popularlist =await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=0c55e77b8c48f4c85063d957ff2a1851&language=en-US&page=${page}`)
         setpopularlist(await popularlist.json());
     
-        // setloading(false)
+        setloading(false)
         
       }
   useEffect(() => {
@@ -35,18 +32,12 @@ const latest_movies = () => {
     }
   }, [])
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setloading(false)
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, [loading]);
 
 
    if(loading){
    return (
     <div className={movies.loader_container}>
-        {/* <div className="spinner"></div> */}
+        
       </div>
    )
    }
@@ -66,13 +57,6 @@ const latest_movies = () => {
       <div className={movies.main}>
         <Popular popularlist={popularlist} expanded={expanded} path={"slected/selectedmovie"} mediatype = {"movie"}/>
         </div>
-    {/* <div className={movies.pages}>
-    {pages.map((page) => (
-          <button className={movies.page_btn} onClick={()=>setpage(page)}>{page}</button>
-      ))
-      }
-        
-    </div> */}
     <Pagination itemsperpage={20} totalItems={400} paginate={handleClicked}/>
     </div>
     <Footer />
